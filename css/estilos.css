@@ -114,10 +114,28 @@ button:hover, button:focus {
 }
 body{
     font-family: 'Montserrat', sans-serif;
+    /*background-image: url(/multimedia/background.png);*/
+    background:  #FEEFDD;
 }
 
 /* rosado muy claro #FFECCC; */
-.aside, .prod__aside, .main, prod_main {background: #FFF;}
+.nav, .prod__nav, .main, .prod__main {
+    background: 
+    radial-gradient(#50B2C0 2px, transparent 3px),
+    radial-gradient(#50B2C0 2px, transparent 3px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #FAAA8D 75px, #FAAA8D 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #FAAA8D 76px, #FAAA8D 77px, transparent 78px, transparent 109px),#fff;
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+.aside, .prod__aside{
+    background:  #FFF
+    /*background-image: url(/multimedia/background.png);*/
+}
+
+
 
 
 /* 3.3 Poner los elementos html dentro de la cuadrícula*/
@@ -323,6 +341,9 @@ body{
     display: flex;
     flex-wrap: wrap; 
 }
+.section1__divContent--img{
+    border: rgb(150, 150, 150);
+}
 .section1__divContent_p{
     padding: 1em 0;
 }
@@ -348,6 +369,10 @@ body{
     justify-content: center;
     gap: 40px 50px;
     padding: 25px 0;
+}
+
+.section2__divContent--figure__img{
+    border: rgb(150, 150, 150);
 }
 .section2__divContent--figure__figcaption{
     color: #25292c;
