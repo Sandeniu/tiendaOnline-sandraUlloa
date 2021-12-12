@@ -1,0 +1,31 @@
+
+Marrón oscuro  #27272b
+Naranjo RRSS    #FB6900
+
+Negro espeluznate    #201E1F
+Naranjo                           #FF4000
+Rosado Anaranjado    #FAAA8D
+Rosado Aclarado          #FEEFDD
+Azul Pacífico                   #50B2C0
+
+Header Rosado Anaranjado    #FAAA8D
+Linea     Rosado Aclarado          #FEEFDD
+Menú Azul Pacífico                   #50B2C0
+footer    Marrón oscuro  #27272B    |    Letras  Naranjo RRSS    #FB6900   |   Menú Blanco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,927 @@
+/*ROBOTO >>> font-family:'Roboto', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2? family = Roboto: ital, wght @ 0,100; 0,300; 0,400; 0,500; 0,700; 0,900; 1,100; 1,300; 1,400; 1,500; 1,700; 1,900 & display = swap');
+/*Montserrat >>> font-family: 'Montserrat', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2? familia = Montserrat: ital, wght @ 0,100; 0,200; 0,300; 0,400; 0,500; 0,600; 0,700; 0,800; 0,900; 1,100; 1,200; 1,300; 1,400; 1,500; 1,600; 1,700; 1,800; 1,900 & display = swap');
+
+
+/*///////////////////////////////////////////
+///////        INDEX                  //////                              
+//////////////////////////////////////////*/
+
+
+/********************** 1) estilizando elementos generales *************/
+*{
+  margin:0; 
+  padding: 0;
+  padding: 0px;  
+  list-style: none; /* Quitar viñetas de las listas*/
+  text-decoration: none; /* Quitar subrayado de los enlaces*/
+  border: none;
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #25282c;
+    font-weight:normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/******************* 2) Estilizando Formularios *******************/
+
+/* Borde y Centrado perfecto del formulario*/
+form {
+    width: 250px;
+    max-width: 600px;
+    height: auto;
+    color: #25292c;
+    border: 1px solid rgb(200, 200, 200);
+}
+fieldset{
+    padding: 20px;
+}
+/*Ocultar título del formulario*/
+legend { 
+    width: 1px;
+    height: 1px;
+    overflow: hidden;;
+}
+/*Bordes de elementos de formulario*/
+label, input, select, textarea, button {
+    display: block;
+    font : .9em "typewriter", sans-serif;
+}
+input, select, textarea{
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    width : 12rem;
+    height: 1.8em; /* for IE */
+}
+label{
+    width : 12rem;
+    height: 1rem; /* for IE */
+    padding: 10px 0 0 0;
+}
+button {
+    box-sizing: border-box;
+    border-radius: 30px;
+    border: 1px solid rgb(200, 200, 200);
+    width : 8rem;
+    height: 2.5em; /* for IE */
+    padding: 5px;
+    margin: 10px 0;
+    background: #201E1F;
+    color: #FFF;
+    cursor: pointer;
+}
+input:focus, textarea:focus {/*color resaltado al recibir foco*/
+    background :#FEEFDD;
+}
+textarea {
+    height: 7rem;  
+    resize  : none;
+    overflow: auto;
+}
+button:after {
+    content: " >>>";
+}
+button:hover, button:focus {
+    background:  #FF4000;;
+}
+
+/******************** 3) Construir el Layout General ***************/
+
+/* 3.1. Contrucción de grilla*/
+.body__divGrilla{
+    /*background:#fcfaf7;*/
+    width: 90%; /*el contenedor ocupa el 90% del viewport*/
+    max-width: 1200px; /* su ancho máximo será 1200px*/
+    margin: 1.6em auto; /*centrando el contenido mediante valor automático hacia los lados*/
+    display: grid;
+    gap: 0.5em;
+    /* grid-template-columns: repeat(4, 1fr) 3%; */
+    grid-template-columns: repeat(7, 1fr);
+    /*grid-template-rows: 120px 40px auto 150px;*/
+    /*grid-auto-rows: minmax(100, auto);*/
+    /*grid-auto-rows: minmax(min-content, max-content);*/
+    /* grid-template-rows: repeat(1, 15% 5% 60% 20%);*/
+}   
+
+/* 3.2. enmarcar los grid-items, para comprender lo que se va a hacer */
+.header, .nav, .main, .aside, .footer, .body__divGrilla>div {
+    border: 1px solid rgb(200, 200, 200);
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* rosado muy claro #FFECCC; */
+.aside, .prod__aside, .main, prod_main {background: #FFF;}
+
+
+/* 3.3 Poner los elementos html dentro de la cuadrícula*/
+.header{grid-column: 1/8; grid-row:1/2;}
+.nav{grid-column: 1/8; grid-row:2/3;}
+.main{grid-column: span 5; grid-row:3/4;}
+.aside{grid-column: span 2; grid-row:3/4;}
+.footer{grid-column: 1/8; grid-row:4/5;}
+
+/*************** 4) Construcción de areas específicas **********/
+
+/***4.1. ESTRUCTURA.HEAD***************/
+.header{
+    display:flex;
+    flex-direction:column;
+    background-color:  #FAAA8D;
+    border-top: 10px #50B2C0 solid;
+    border-bottom: 10px #50B2C0 solid;
+    height: 5.0em; /*(120px aprox)*/
+}
+.header__divTitulo{
+    align-self: flex-start; /*alineac. individual*/
+    /*Alineación de texto horizontal y verticalmente*/   
+    width: 50%;
+    height: 50%;
+    line-height: 80px; /*mover línea de texto verticalmente*/
+    text-align: center; 
+    
+}
+.header__divTitulo__h1{
+    font-size: 2rem;
+    letter-spacing: 0.8rem;
+    text-shadow: #feefdd 3px 3px 7px;
+}
+.header__divInteractivo{ /*es flexitem y flexbox*/
+   align-self: flex-end; /*alineaión como flex-item*/
+    display:flex;
+    flex-direction:row;
+    align-items:center; /*alineaión como flex-box*/
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 50%;
+    height: 50%;
+    margin-right: 0.5rem; 
+}
+.header__divInteractivo__buscador{
+    width: 40%;
+    height: 24px;
+    border: 1px solid;
+    border-color: rgb(150, 150, 150);
+    box-shadow: #feefdd 1px 1px 5px 1px;
+}
+
+/***4.2. ESTRUCTURA.NAV***************/
+.nav{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    height: 40px;
+    background-color: #FEEFDD;
+    border-bottom: 2px #50B2C0 solid;
+} 
+
+/*MENÚ DEL MÓVIL*/
+.nav__divMovil{ 
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;*/
+    display: none;
+}
+/*MENÚ IZQUIERDO DEL MÓVIL*/
+.nav__divMovile_divLeft{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    vertical-align: center;
+    padding-left: 35px;
+}
+.nav__divMovile__divLeft a {
+    color: #ccbaa3;
+}
+.nav__divMovile__divLeft__ul__li{
+    padding-top: 0.3em;
+}
+.nav__divMovile__divLeft__ul__li__ul{ /*ocultar submenú*/
+    display: none;
+    position:absolute;
+    z-index:1000;
+}
+.nav__divMovile__divLeft__ul__li__ul__li{ /*item del submenú*/
+    width: 120px;
+    height: 2rem;
+    padding: 0.3rem;
+}
+.nav__divMovile__divLeft li:hover ul {/*mostrar menú al pasar el mouse*/
+    display: block;
+    background-color: #27272B;
+}
+
+/*MENÚ DERECHO DEL MÓVIL*/
+.nav__divMovil__divRight{ 
+    align-self: flex-end; 
+    display:flex;
+    flex-direction:row;
+    align-items:center; /*horizontal dentro de su celda*/
+    justify-content: flex-end; /*vertical dentro del contenedor*/
+    gap: 0.5rem;
+    width: 20%;
+}
+
+.nav__divMovil__divRight__buscador{
+    width: 40%;
+    height: 24px;
+    border: 1px solid;
+    border-color: rgb(150, 150, 150);
+    box-shadow: #feefdd 1px 1px 5px 1px;
+}
+
+
+/****MENÚ DESKTOP****/
+
+/*.nav__divDesktop{
+    display: none;   
+}*/
+.nav__divDesktop__ul{ 
+    display: flex; /*el menú se hace horizontal*/
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+    height: 2.5em;
+}
+.nav__divDesktop__ul__li{
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+    
+    /*la siguiente configuración es solo para poder centrar verticalmente las etiquetas li...*/
+    display: flex;
+    flex-direction: column ;
+    justify-content: center; 
+}
+.nav__divDesktop__ul__li:hover {
+    background:  #50B2C0;
+}
+.nav__divDesktop__ul__li__a {
+    color: #25292c;
+    font-size: 1rem;
+    font-weight:normal;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    padding: 10px; 
+
+    /*transition: Propiedad afectada + 
+    tiempo de desplazamiento + 
+    forma de desplazarse +
+    tiempo para iniciar*/
+
+    transition: all 0.3s;
+    background-color: transparent;
+}
+.nav__divDesktop__ul__li__a:hover {
+    color: #ffffff;
+}
+
+/***4.3. ESTRUCTURA.MAIN***************/
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+}
+.section1{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+}
+.section1__divTitulo{
+    width: 90%;
+    height: 50px;
+    line-height: 30px; /*mover línea de texto verticalmente*/
+}
+
+.section1__divContent{
+    /*estableciendo el ancho del contenedor padre 
+    para luego poder alinear horizontalmente al item hijo
+    width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    
+    /* usar posteriormente cuando sea necesario */
+    display: flex;
+    flex-wrap: wrap; 
+}
+.section1__divContent_p{
+    padding: 1em 0;
+}
+
+.section2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+.section2__divTitulo{
+    /* width: 100%; Al comentar línea, el contenido se centra*/
+    height: 50px; 
+    line-height: 50px; /*mover línea de texto verticalmente*/
+    
+}
+.section2__divContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px 50px;
+    padding: 25px 0;
+}
+.section2__divContent--figure__figcaption{
+    color: #25292c;
+    text-align: justify;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 5px;
+}
+
+/***4.4. ESTRUCTURA.ASIDE***************/
+.aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.aside__div1{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    padding-top: 50px;
+}
+.aside__div1__form__fielset{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+.button{
+    align-self: flex-end;
+}
+.aside__div2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 50px 0;
+}
+
+.aside__div2--divAnuncio {
+    border: 1px solid rgb(200, 200, 200);
+    background: #2d3436;
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight:normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    height: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*transition: Propiedad afectada + 
+    tiempo de desplazamiento + 
+    forma de desplazarse +
+    tiempo para iniciar*/
+    transition: all 0.5s ease;
+}
+.aside__div2--divAnuncio:hover {
+    cursor: pointer;
+    color: #000000;
+    background: #ffffff;
+}
+/***4.5. ESTRUCTURA.FOOTER***************/
+.footer{
+    position: relative;
+    background: #27272b;
+}
+.footer__divGrilla{
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: flex-start;
+    justify-items: center;
+    position:absolute;
+    top: 20px;
+}
+.footer__divMenu{
+    grid-column: 1/5;
+    grid-row: 1/3;
+    display: flex;
+    gap: 60px;
+}
+.footer__divSocial{
+    grid-column: 5/6;
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-items: center;
+}
+.footer__divSocial__divSiguenos{
+    display: flex;
+    gap: 1em;
+    color:  #FB6900 ;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+.footer__divSocial__divIconos{
+    display: flex;
+    gap: 2em;
+}
+.footer__divCopyrigt{
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    display: flex;
+}
+.footer__divMenu__a {
+    color: #FB6900;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+.footer__divCopyrigt__p {
+    color: #FB6900;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/*///////////////////////////////////////////
+///////       PRODUCTOS.HTML           //////                              
+///////////////////////////////////////////*/
+
+.prod__divGrilla{
+    display: grid;
+    background: #fcfaf7;
+    width: 90%; /*el contenedor ocupa el 90% del viewport*/
+    max-width: 1200px; /* su ancho máximo será 1200px*/
+    margin: 1.6em auto; /*centrando el contenido mediante valor automático hacia los lados*/
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: repeat(7, 1fr);
+    /* grid-template-columns: repeat(4, 1fr) 3%; */
+    /*grid-template-rows: 120px 40px auto 150px;*/
+    /*grid-auto-rows: minmax(100, auto);*/
+    /*grid-auto-rows: minmax(min-content, max-content);*/
+    /* grid-template-rows: repeat(1, 15% 5% 60% 20%);*/
+}   
+
+/* 3.2. enmarcar los grid-items, para comprender lo que se va a hacer */
+.prod__header, .prod__nav, .prod__main, .prod__aside, .prod__footer, .prod__divGrilla>div {
+    border: 1px solid rgb(200, 200, 200);
+}
+.prod__header, .prod__nav, .prod__main, .prod__aside{
+    background: #fff;
+}
+
+/* 3.3 Poner los elementos html dentro de la cuadrícula*/
+.prod__header{grid-column: 1/-1;}
+.prod__nav{grid-column: 1/-1;}
+.prod__aside{grid-column: span 2;}
+.prod__main{grid-column: span 5;}
+.prod__footer{grid-column: 1/-1;}
+
+.prod__header{
+    display:flex;
+    flex-direction:column;
+    background-color:  #FAAA8D;
+    border-top: 10px #50B2C0 solid;
+    border-bottom: 10px #50B2C0 solid;
+    height: 5.0em; /*(120px aprox)*/
+}
+.prod__nav{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    height: 40px;
+    background-color: #FEEFDD;
+    border-bottom: 2px #50B2C0 solid;
+}
+.prod__aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.prod__aside_div1{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+/*menú categorías*/
+.prod__aside_div1--divMenuItem__h{
+    color: #ffffff;
+    border-bottom: 1px solid #FB6900 ;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 10px;
+    transition: all 0.3s;
+    background-color: transparent;
+}
+
+    /*Título para las categorías, pero es mejor borrarlo
+    (por eso las letras color blanco)*/
+    .prod__aside__div1__h{
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+
+}
+.prod__aside_div1--divMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+}
+.prod__aside_div1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.prod__section1__divContent__divLamina__a{
+    color:  #25282c;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 10px 0; 
+
+}
+.prod__section1__divContent__divLamina__p__span{
+    color: RED;
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.prod__section1__divContent__divLamina__p{
+   padding: 10px 0; 
+}
+.prod__main{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+}
+.prod__section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    padding: 50px 0px;
+    text-align: center;
+}
+.prod__section1__divContent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+.prod__section1__divContent__divLamina{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-content: center; */
+    align-items: center;
+    /* justify-items: center;*/
+    border: 1px solid rgb(200 200 200);
+}
+.prod__footer{
+    position: relative;
+    background: #27272b;
+}
+
+/********************************************/
+/*       R  E  S  P  O  N  S  I  V  E       */
+/********************************************/
+
+@media only screen and (min-width: 200px) and (max-width: 439px){
+    body{background: blueviolet;}
+    
+    /*página index  */   
+    .body__divGrilla{
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+    }
+    .header{grid-column: 1/-1; grid-row:1/2;} 
+    .nav{grid-column: 1/-1; grid-row:2/3;}
+    .main{grid-column: 1/-1; grid-row:3/4;}
+    .aside{grid-column: 1/-1; grid-row:4/5;}
+    .footer{grid-column: 1/-1; grid-row:5/6;}
+
+    /*página productos*/
+    .prod__divGrilla{ grid-template-columns: 1fr; grid-gap: 0px;}
+    .prod__header{grid-column: 1/-1;} 
+    .prod__nav{grid-column: 1/-1;}
+    .prod__main{grid-column: 1/-1;}
+    .prod__aside{grid-column: 1/-1;}
+    .prod__footer{grid-column: 1/-1;} 
+
+   
+.prod__aside_div1--divMenu {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+	.prod__aside {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+	}
+	
+	.prod__aside_div1 {
+    display: block;
+    }
+	.prod__section1 {
+    padding: 30px 0px;
+    text-align: center;
+    }
+   /*********************************/
+ 
+    .header__divTitulo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .header__divTitulo__h1,
+    .section1__divTitulo__h,
+    .section2__divTitulo__h{
+        font-size: 1em;
+        letter-spacing: 0.4em;
+        text-align: start;
+        /* height: 50px; */
+        line-height: 25px;
+    }
+
+    .header__divInteractivo {display: none;}
+    .nav__divDesktop{ /*MENÚ DEL DESKTOP*/
+        display: none;
+    }
+    .nav__divMovil{ /*MENÚ DEL MÓVIL*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav__divMovil__divRight{
+        width: 80%;
+    }
+    .nav__divMovil__divRight__buscador{
+        width: 70%;
+    }
+    .section1__divTitulo__h, .section2__divTitulo__h {
+        font-size: 1em;
+    }
+    .section1__divContent--img{
+        width: 180px;
+        height: 150px;
+    }
+    .footer__divGrilla {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 1fr;
+        /* grid-template-rows: repeat(3, 1fr); */
+        align-items: center;
+        justify-items: center;
+        position: absolute;
+        top: 20px;
+    }
+    .footer__divMenu {
+        grid-column: 1/-1;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .footer__divSocial {
+        grid-column: 1/-1;
+        /* grid-row: 1/3; */
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        justify-items: center;
+    }
+    .footer__divMenu__a, .footer__divCopyrigt__p {
+        color: blanchedalmond;
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: normal;
+    }
+}
+/*//////////////////////////////////////////////////////***/
+
+
+@media only screen and (min-width: 440px) and (max-width: 768px){
+    body{background: tomato;}
+
+    /*   TABLET.GRILLA  */   
+    .body__divGrilla{
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+    }
+    .header{grid-column: 1/-1; grid-row:1/2;} 
+    .nav{grid-column: 1/-1; grid-row:2/3;}
+    .main{grid-column: 1/-1; grid-row:3/4;}
+    .aside{grid-column: 1/-1; grid-row:4/5;}
+    .footer{grid-column: 1/-1; grid-row:5/6;}
+
+ /*página productos*/
+ .prod__divGrilla{ grid-template-columns: 1fr; grid-gap: 0px;}
+ .prod__header{grid-column: 1/-1;} 
+ .prod__nav{grid-column: 1/-1;}
+ .prod__main{grid-column: 1/-1;}
+ .prod__aside{grid-column: 1/-1;}
+ .prod__footer{grid-column: 1/-1;} 
+
+    
+.prod__aside_div1--divMenu {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+	.prod__aside {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+	}
+	
+	.prod__aside_div1 {
+    display: block;
+    }
+	.prod__section1 {
+    padding: 30px 0px;
+    text-align: center;
+    }
+/*********************************/
+
+
+    .header__divTitulo{width: 100%; }
+    .header__divTitulo__h1{font-size: 1rem;}
+    .header__divInteractivo{display: none;}
+
+     /*  TABLET.NAV    */
+    .nav__divDesktop{ /*MENÚ DEL DESKTOP*/
+    display: none;
+    }
+    .nav__divMovil{ /*MENÚ DEL MÓVIL*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .nav__divMovil__divRight{
+    width: 80%;
+    }
+    .nav__divMovil__divRight__buscador{
+    width: 70%;
+    }
+
+/********TABLET.MAIN*******************/
+    .section1__divTitulo__h, .section2__divTitulo__h {
+    font-size: 1em;
+    }
+    .section1__divContent--img{
+    width: 350px;
+    height: 200px;
+    }
+
+    .footer__divMenu {
+        grid-column: 1/-1;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+/********TABLET.footer*******************/
+    .footer__divSocial {
+        grid-column: 1/-1;
+        /* grid-row: 1/3; */
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        justify-items: center;
+    }
+    .footer__divMenu__a, .footer__divCopyrigt__p {
+        color: blanchedalmond;
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: normal;
+    }
+}
+
+/* Desktop Styles*/
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    body {
+        background: green;
+    }
+     /*   TABLET.GRILLA  */   
+     .body__divGrilla{
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        }
+        .header{grid-column: 1/-1; grid-row:1/2;} 
+        .nav{grid-column: 1/-1; grid-row:2/3;}
+        .main{grid-column: 1/-1; grid-row:3/4;}
+        .aside{grid-column: 1/-1; grid-row:4/5;}
+        .footer{grid-column: 1/-1; grid-row:5/6;}   
+
+   /*página productos*/
+   .prod__divGrilla{ grid-template-columns: 1fr; grid-gap: 0px;}
+   .prod__header{grid-column: 1/-1;} 
+   .prod__nav{grid-column: 1/-1;}
+   .prod__main{grid-column: 1/-1;}
+   .prod__aside{grid-column: 1/-1;}
+   .prod__footer{grid-column: 1/-1;}
+   
+   .prod__aside_div1 {
+    margin: 0px 0;
+}
+
+.prod__aside_div1--divMenu {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+	.prod__aside {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+	}
+	
+	.prod__aside_div1 {
+    display: block;
+    }
+	.prod__section1 {
+    padding: 30px 0px;
+    text-align: center;
+    }
+  /*********************************/
+
+}
+

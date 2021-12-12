@@ -1,0 +1,17 @@
+generador de imágenes aleatorias
+la url se debe poner en el src de la etiqueta  html  al actualizar la página se va renovando la imagen
+httplorempixel.com400200sports
+httploremflickr.com450300cake
+httpsplaceimg.com450300   Con categorías como animales, arquitectura y tecnología
+httpsp-hold.com450300
+httpspicsum.photos450300
+
+generador de imágenes ficticias
+httpsdummyimage.com    devuelve una imagen de acuerdo con los parámetros de estilo dados  las imágenes hay que descargarlas
+httpfpoimg.com450x300text=Advertisement
+
+generador de fondos a rayas
+httpwww.stripegenerator.com
+background-image url(path-to-stripe.png);
+Si solo desea repetir horizontalmente su mosaico (como en el caso de los mosaicos con degradado), debe agregar esta línea también
+background-repeat repeat-x;
