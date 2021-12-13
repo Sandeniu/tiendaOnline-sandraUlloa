@@ -115,10 +115,10 @@ button:hover, button:focus {
 body{
     font-family: 'Montserrat', sans-serif;
     /*background-image: url(/multimedia/background.png);*/
-    background:  #FEEFDD;
+    background:  #FEEFDD; /* otro rosado muy claro serìa #FFECCC; */
 }
 
-/* rosado muy claro #FFECCC; */
+/*fondo con gradientes para el main y el nav de las páginas*/
 .nav, .prod__nav, .main, .prod__main {
     background: 
     radial-gradient(#50B2C0 2px, transparent 3px),
