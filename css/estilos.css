@@ -442,39 +442,44 @@ body{
     background: #ffffff;
 }
 /***4.5. ESTRUCTURA.FOOTER***************/
+
 .footer{
-    position: relative;
-    background: #27272b;
-}
-.footer__divGrilla{
-    width: 100%;
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    align-items: flex-start;
-    justify-items: center;
-    position:absolute;
-    top: 20px;
-}
-.footer__divMenu{
-    grid-column: 1/5;
-    grid-row: 1/3;
-    display: flex;
-    gap: 60px;
-}
-.footer__divSocial{
-    grid-column: 5/6;
-    grid-row: 1/3;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     align-items: center;
-    justify-items: center;
+    background: #27272b;
+}
+.footer__fila1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: 1rem;
+}
+.footer__divMenu{
+    display: flex;
+    gap: 2rem;
+    /*align-items: center;  */
+}
+
+.footer__divMenu__a {
+    color: white;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-align: center;
+}
+.footer__divSocial{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
 }
 .footer__divSocial__divSiguenos{
     display: flex;
-    gap: 1em;
+    align-items: center;
+    justify-content: center;
     color:  #FB6900 ;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
@@ -484,28 +489,20 @@ body{
 }
 .footer__divSocial__divIconos{
     display: flex;
-    gap: 2em;
+    gap: 1.5rem;
+    justify-content: center;
 }
-.footer__divCopyrigt{
-    grid-column: 1/-1;
-    grid-row: 3/4;
-    display: flex;
-}
-.footer__divMenu__a {
-    color: #FB6900;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    letter-spacing: 2px;
-    font-weight: 500;
+.footer__fila2{
+    margin: 1rem 0rem;
+    align-self: center;
 }
 .footer__divCopyrigt__p {
-    color: #FB6900;
+    color: white;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
     font-weight: 500;
 }
-
 /*///////////////////////////////////////////
 ///////       PRODUCTOS.HTML           //////                              
 ///////////////////////////////////////////*/
@@ -756,38 +753,12 @@ body{
         width: 180px;
         height: 150px;
     }
-    .footer__divGrilla {
-        display: grid;
-        gap: 1em;
-        grid-template-columns: 1fr;
-        /* grid-template-rows: repeat(3, 1fr); */
-        align-items: center;
-        justify-items: center;
-        position: absolute;
-        top: 20px;
-    }
-    .footer__divMenu {
-        grid-column: 1/-1;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
 
-    .footer__divSocial {
-        grid-column: 1/-1;
-        /* grid-row: 1/3; */
-        display: flex;
+    .footer__fila1, .footer__divMenu{
         flex-direction: column;
-        gap: 1em;
-        align-items: center;
-        justify-items: center;
     }
-    .footer__divMenu__a, .footer__divCopyrigt__p {
-        color: blanchedalmond;
-        font-family: 'Roboto', Arial, Helvetica, sans-serif;
-        font-size: 12px;
-        letter-spacing: 1px;
-        font-weight: normal;
+    .footer__divMenu__a, .footer__divSocial__divSiguenos__p{
+        font-size: 0.9rem;
     }
 }
 /*//////////////////////////////////////////////////////***/
@@ -870,12 +841,12 @@ body{
     width: 350px;
     height: 200px;
     }
-
-    .footer__divMenu {
-        grid-column: 1/-1;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+    .footer__divMenu{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer__divMenu__a, .footer__divSocial__divSiguenos__p {
+        font-size: 0.9rem;
     }
 /********TABLET.footer*******************/
     .footer__divSocial {
@@ -945,6 +916,14 @@ body{
 	.prod__section1 {
     padding: 30px 0px;
     text-align: center;
+    }
+    .footer__divMenu{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer__divMenu__a, .footer__divSocial__divSiguenos__p {
+        font-size: 0.9rem;
     }
   /*********************************/
 
